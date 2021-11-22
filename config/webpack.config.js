@@ -334,7 +334,7 @@ module.exports = function (webpackEnv) {
           'scheduler/tracing': 'scheduler/tracing-profiling',
         //这里可以修改 @ 路径所对应的路径
         }),
-        '@': path.resolve(__dirname, '../src'),
+        '@': path.resolve(__dirname, paths.appSrc),
         ...(modules.webpackAliases || {}),
       },
       plugins: [

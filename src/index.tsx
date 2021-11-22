@@ -1,12 +1,20 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import AuthPage from '@/AuthPage/index';
+import Home from '@/Home';
 import reportWebVitals from './reportWebVitals';
-
+import { BrowserRouter as Router ,Routes ,Route} from "react-router-dom";
+import Login from '@/Login'
 ReactDOM.render(
   <React.StrictMode>
-    <AuthPage />
+    <Router>
+      <Routes>
+        <Route path="/">
+          <Route index element={<Home/>}/>
+          <Route path="login" element={<Login/>}/>
+        </Route>
+      </Routes>
+    </Router>
   </React.StrictMode>,
   document.getElementById('root')
 );
