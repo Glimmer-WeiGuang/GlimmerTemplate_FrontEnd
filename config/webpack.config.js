@@ -333,8 +333,8 @@ module.exports = function (webpackEnv) {
           'react-dom$': 'react-dom/profiling',
           'scheduler/tracing': 'scheduler/tracing-profiling',
         //这里可以修改 @ 路径所对应的路径
-          '@':paths.appSrc,
         }),
+        '@': path.resolve(__dirname, '../src'),
         ...(modules.webpackAliases || {}),
       },
       plugins: [

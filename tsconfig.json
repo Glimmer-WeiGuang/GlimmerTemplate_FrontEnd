@@ -1,6 +1,13 @@
 {
   "compilerOptions": {
-    "target": "es5",
+    "baseUrl": ".",
+    "paths": {
+      // 注意哦，是 "@/*" 后面的 "/*" 不能少
+        "@/*": [
+            "src/*"
+        ]
+    },
+    "target": "es6",
     "lib": [
       "dom",
       "dom.iterable",
