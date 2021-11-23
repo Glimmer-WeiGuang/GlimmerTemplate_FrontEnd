@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
+import "@/styles/tailwind.css";
 import AuthPage from '@/AuthPage/index';
 import reportWebVitals from './reportWebVitals';
 

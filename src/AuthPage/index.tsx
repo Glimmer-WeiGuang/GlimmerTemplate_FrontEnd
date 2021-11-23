@@ -1,3 +1,8 @@
 export default function AuthPage(){
-    return <>AuthPage</>
+    return (
+        <div className="text-blue-500">
+            AuthPage
+        </div>
+    )
+    
 }
