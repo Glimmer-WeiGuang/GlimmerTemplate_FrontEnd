@@ -332,9 +332,9 @@ module.exports = function (webpackEnv) {
         ...(isEnvProductionProfile && {
           'react-dom$': 'react-dom/profiling',
           'scheduler/tracing': 'scheduler/tracing-profiling',
-        //这里可以修改 @ 路径所对应的路径
         }),
-        '@': path.resolve(__dirname, '../src'),
+        //这里可以修改 @ 路径所对应的路径
+        '@': path.resolve(__dirname, paths.appSrc),
         ...(modules.webpackAliases || {}),
       },
       plugins: [
