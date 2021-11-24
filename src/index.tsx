@@ -1,21 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import "@/styles/tailwind.css";
-import './index.css';
-import Home from '@/Home';
 import reportWebVitals from './reportWebVitals';
-import { BrowserRouter as Router ,Routes ,Route} from "react-router-dom";
-import Login from '@/Login'
+import App from '@/App'
 ReactDOM.render(
   <React.StrictMode>
-    <Router>
-      <Routes>
-        <Route path="/">
-          <Route index element={<Home/>}/>
-          <Route path="login" element={<Login/>}/>
-        </Route>
-      </Routes>
-    </Router>
+    <App/>
   </React.StrictMode>,
   document.getElementById('root')
 );
