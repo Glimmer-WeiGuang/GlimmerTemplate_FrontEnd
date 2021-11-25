@@ -1,17 +1,22 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { useAppDispatch ,useAppSelector }   from '@/common/utils/hooks'
+
 import {Logout} from '@/redux/authSlice'
+
 export default function Home():JSX.Element{
     const dispatch = useAppDispatch();
-    const status = useAppSelector((state)=> state.Auth.status);
+    const status:boolean = useAppSelector((state)=> state.Auth.status);
 
-    const LogoutOnClick = function() {
-        dispatch(Logout)
-        console.log(status)
+    function SetLogout(){
+        dispatch(Logout());
+        localStorage.removeItem('status');
     }
     return (
-        <div className="text-blue-500">
-            Home
-            <div onClick={LogoutOnClick}>Logout</div>
+        <div >
+            Home 当前状态：{status.toString()}  
+            <button 
+            className="text-blue-500" 
+            onClick={()=>SetLogout()}>Logout</button>
         </div>
     )
 }
