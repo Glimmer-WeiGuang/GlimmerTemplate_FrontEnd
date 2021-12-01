@@ -1,17 +1,17 @@
 import { createSlice } from '@reduxjs/toolkit';
 import {State} from '@/redux/store';
 interface AuthState { 
-    status: boolean;
+    status: string | null;
 }
 let initialAuthState : AuthState;
 const authStorage = localStorage.getItem('status')
 if(authStorage){
     initialAuthState ={
-        status:true,
+        status:authStorage,
     }
 }else{
     initialAuthState ={
-        status:false,
+        status:null,
     }
 }
 
@@ -21,10 +21,10 @@ export const authSlice = createSlice({
     initialState:initialAuthState,
     reducers: {
         Login:(state) => {
-           state.status= true;
+           state.status= authStorage;
         },
         Logout:(state) => {
-            state.status = false;
+            state.status = null;
         }
     },
 }) 

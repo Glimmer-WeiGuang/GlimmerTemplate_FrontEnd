@@ -18,10 +18,8 @@ export default function App(): JSX.Element {
                                 </AuthGuard>
                             } />
                         </Route>
+                        <Route path='/login' element={<AuthLogin />} />
                     </Routes>
-                <Routes>
-                    <Route path='/login' element={<AuthLogin />} />
-                </Routes>
             </Router>
         </Provider>
     )
