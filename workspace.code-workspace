@@ -1,0 +1,14 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "src\\workspaceExample_1"
+		},
+		{
+			"path": "src\\workspaceExample_2"
+		}
+	],
+	"settings": {}
+}
