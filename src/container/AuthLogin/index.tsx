@@ -3,27 +3,35 @@ import { useAppDispatch, useAppSelector } from '@/common/utils/hooks'
 import { Login } from '@/redux/authSlice'
 import { Navigate } from "react-router-dom";
 import { Form, Input, Button } from 'antd';
+import { useState } from 'react';
+import { useNavigate } from "react-router-dom";
 
 export default function AuthLogin(): JSX.Element {
 
     const dispatch = useAppDispatch();
-    const status: string | null = useAppSelector((state) => state.Auth.status);
-    if (status) {
-        return <Navigate to="/" />;
-    }
+    const status: boolean | null = useAppSelector((state) => state.Auth.status);
+    let navigate = useNavigate();
+
+    let [statusState , setStatusState] = useState(status)
+   
     function SetLogin(value:any) {
-        dispatch(Login());
+        setStatusState(value.username);
         localStorage.setItem('status', value.username);
+        dispatch(Login());
+        navigate('/',{replace: true});
     }
     function onFinishFailed(errorInfo: any){
             console.log('Failed:', errorInfo);
+    }
+    if (statusState) {
+        return <Navigate to="/" />;
     }
     return (
         <div className="w-screen h-screen bg-gray-200 flex justify-center items-center ">
             <div className='w-2/5 h-1/4  bg-blue-200 flex-col justify-center items-center rounded-xl'>
                 <h1 
                 className='text-3xl text-center mb-12 mt-12'
-                > Login Failed</h1>
+                > Login Page</h1>
                  <Form
                 className="mt-"
                 name="basic"

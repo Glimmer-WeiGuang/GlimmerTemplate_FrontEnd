@@ -6,8 +6,8 @@ import { Logout } from '@/redux/authSlice'
 
 export default function Home(): JSX.Element {
     const dispatch = useAppDispatch();
-    const status: string | null = useAppSelector((state) => state.Auth.status);
-
+    const status: boolean | null = useAppSelector((state) => state.Auth.status);
+    const name = localStorage.getItem('status');
     function SetLogout() {
         dispatch(Logout());
         localStorage.removeItem('status');
@@ -19,11 +19,11 @@ export default function Home(): JSX.Element {
             className='w-2/5 h-1/4  bg-blue-200 flex-col justify-center items-center rounded-xl'>
                 <h1
                 className='text-3xl text-center '
-                >Home Page
+                >Home Page / Login status : {status}
                 </h1>
                 <h2
                 className='text-3xl text-center '
-                >当前账号： {status?.toString()}</h2>
+                >当前账号： {name?.toString()}</h2>
                 <Button
                 type="primary" block
                 className="text-blue-500"
